@@ -14,14 +14,29 @@ public class Main {
             System.out.println("Luong cua nhan vien " + nhanVien.getName() + "la:  " + nhanVien.getIncome());
         }
 
-        int sum= 0;
+        int sum = 0;
         for (NhanVien nhanVien : nhanVienArray) {
             sum += nhanVien.getIncome();
         }
-        System.out.println("Luong trung binh cua nhan vien la: " + (sum/ nhanVienArray.length));
+        int averageIncome = sum / nhanVienArray.length;
+        System.out.println("Luong trung binh cua nhan vien la: " + (sum / nhanVienArray.length));
 
+        int parttimeSum = 0;
+        for (NhanVien nhanVien : nhanVienArray) {
+            if (nhanVien instanceof NhanVienParttime) {
+                parttimeSum += nhanVien.getIncome();
+            }
+        }
+        System.out.println("Total parttime income: " + parttimeSum);
 
-
+        System.out.println("danh sach nhan vien fulltime luong duoi muc trung binh la: ");
+        for (NhanVien nhanVien : nhanVienArray) {
+            if (nhanVien instanceof NhanVienFullTime) {
+                if (nhanVien.getIncome() < averageIncome) {
+                    System.out.println(nhanVien.getName());
+                }
+            }
+        }
 
 
     }
