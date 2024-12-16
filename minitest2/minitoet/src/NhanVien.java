@@ -1,4 +1,4 @@
-public class NhanVien {
+public abstract class NhanVien {
     private String code;
     private String name;
     private int age;
@@ -15,9 +15,7 @@ public class NhanVien {
         this.email = email;
         this.age = age;
     }
-    public int getIncome(){
-        return 0;
-    }
+    public  abstract int getIncome();
 
     public String getName() {
         return name;
